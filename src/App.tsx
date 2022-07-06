@@ -1,50 +1,79 @@
 import React from "react";
 import "./App.css";
+import "./styles/reset.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Splash from "./pages/Splash";
+import Intro from "./components/Intro";
+import styled from "styled-components";
 
 function App() {
   return (
-    <div>
-      <header>
-        <h1>danimkim.</h1>
-        <nav>
+    <Container>
+      <BrowserRouter>
+        <Routes>
+          {/* 추후에 path 이름 '/'로 변경 예정 */}
+          <Route path='/splash' element={<Splash />} />
+        </Routes>
+      </BrowserRouter>
+      <Header />
+      <main>
+        <Intro />
+        <section>
+          <h2>Skills</h2>
+        </section>
+        <section>
+          <h2>Project</h2>
+        </section>
+        <section>
+          <h2>FAQ</h2>
           <ul>
-            <li>About Me</li>
-            <li>Skills</li>
-            <li>Project</li>
-            <li>FAQ</li>
-            <li>Contact</li>
+            <li>질문1</li>
+            <li>질문2</li>
+            <li>질문3</li>
+            <li>질문4</li>
+            <li>질문5</li>
+            <li>질문6</li>
           </ul>
-        </nav>
-      </header>
-      <section>
-        <h2>안녕하세요. 프론트엔드 개발자 김다님입니다.</h2>
-        <p>저의 포트폴리오 사이트에 오신 것을 환영합니다.</p>
-      </section>
-      <section>
-        <h2>Skills</h2>
-      </section>
-      <section>
-        <h2>Project</h2>
-      </section>
-      <section>
-        <h2>FAQ</h2>
-        <ul>
-          <li>질문1</li>
-          <li>질문2</li>
-          <li>질문3</li>
-          <li>질문4</li>
-          <li>질문5</li>
-          <li>질문6</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Contact</h2>
-      </section>
+        </section>
+        <section>
+          <h2>Contact</h2>
+        </section>
+        <Scroll>Scroll →</Scroll>
+      </main>
       <footer>
         <p>&copy; Copyright. All rights reserved. Danim Kim 2022 </p>
       </footer>
-    </div>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  background: radial-gradient(#0fc2c0, transparent);
+  /* background: radial-gradient(ellipse at top, #0fc2c0, transparent 50%),
+    radial-gradient(ellipse at bottom, #008f8c, transparent 60%); */
+`;
+
+const Scroll = styled.p`
+  font-size: 2rem;
+  position: absolute;
+  right: 5rem;
+  bottom: 3rem;
+  writing-mode: vertical-lr;
+  &:hover {
+    color: #0fc2c0;
+    transition: 0.2s;
+    cursor: default;
+    animation: 0.4s infinite ease-out alternate bounce;
+    @keyframes bounce {
+      from {
+        margin-bottom: 0;
+      }
+      to {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+`;
