@@ -1,10 +1,13 @@
-import styled from "styled-components";
-import './../App.css'
+import styled from 'styled-components';
+import './../App.css';
+import logo from './../assets/logo.png';
 
 const Header = () => {
   return (
     <HeaderCont>
-      <h1>danimkim(로고)</h1>
+      <h1>
+        <img src={logo} alt="tinadev" width="100px" />
+      </h1>
       <Wrapper>
         <nav>
           <Ul>
@@ -16,6 +19,7 @@ const Header = () => {
             <Li>See Resume</Li>
           </Ul>
         </nav>
+        <button className="NavBtn">Hamburger btn</button>
         <Button>Dark mode</Button>
       </Wrapper>
     </HeaderCont>
@@ -30,10 +34,22 @@ const HeaderCont = styled.header`
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  height: 140px;
-  padding: 0 5rem;
-  @media screen and (max-width: 1280px) {
-    height: 120px;
+  height: 120px;
+  padding: 0 2rem;
+  nav {
+    display: none;
+  }
+  .NavBtn {
+    display: block;
+  }
+  @media screen and (min-width: 1024px) {
+    height: 140px;
+    nav {
+      display: block;
+    }
+    .NavBtn {
+      display: none;
+    }
   }
 `;
 
@@ -53,4 +69,5 @@ const Button = styled.button`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  border: solid 1px blue;
 `;
