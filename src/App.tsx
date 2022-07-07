@@ -1,100 +1,94 @@
 import React from 'react';
 import './App.css';
 import './styles/reset.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Splash from './pages/Splash';
 import Intro from './components/Intro';
 import styled from 'styled-components';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import FAQ from './components/FAQ';
 
 function App() {
   return (
     <Container>
-      <BrowserRouter>
-        <Routes>
-          {/* 추후에 path 이름 '/'로 변경 예정 */}
-          <Route path='/splash' element={<Splash />} />
-        </Routes>
-      </BrowserRouter>
+      <Background />
       <Header />
-      <Wrapper>
-        <Main>
-          <Intro />
+      <Main>
+        <Intro />
+        <SecondSection>
           <Skills />
           <Projects />
-          <section>
-            <h2>FAQ</h2>
-            <ul>
-              <li>질문1</li>
-              <li>질문2</li>
-              <li>질문3</li>
-              <li>질문4</li>
-              <li>질문5</li>
-              <li>질문6</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Contact</h2>
-          </section>
-          <Scroll>
-            <span>Scroll</span> →
-          </Scroll>
-        </Main>
-        <footer>
-          <p>&copy; Copyright. All rights reserved. Danim Kim 2022 </p>
-        </footer>
-      </Wrapper>
+        </SecondSection>
+        <FAQ />
+        <section>
+          <h2>Contact</h2>
+        </section>
+        <Scroll>
+          <span>Scroll</span> →
+        </Scroll>
+      </Main>
+      <footer>
+        <p>&copy; Copyright. All rights reserved. Danim Kim 2022 </p>
+      </footer>
     </Container>
   );
 }
 
 export default App;
 
-const Container = styled.div`
-  background: radial-gradient(closest-corner at 30% 40%, #d99c9c, transparent),
-    radial-gradient(closest-corner at 70% 60%, #d38484, transparent);
-  /* height: 100vh; */
-  /* animation: 10s infinite ease-in-out alternate bgColorRotation; */
-  /* @keyframes bgColorRotation {
-    0% {
-      background: radial-gradient(
+const Container = styled.div``;
+
+const Background = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: -9999;
+  background: radial-gradient(
+      circle at 10% 10%,
+      #d99c9c,
+      transparent,
+      transparent
+    ),
+    radial-gradient(circle at 80% 100%, #d38484, transparent, transparent);
+
+  @media screen and (min-width: 640px) {
+    transition: 0.2s ease-in-out;
+    background: radial-gradient(farthest-side at 80% 20%, #d99c9c, transparent),
+      radial-gradient(farthest-side at 20% 80%, #d38484, transparent 80%);
+  }
+  @media screen and (min-width: 1024px) {
+    background: radial-gradient(
           closest-corner at 30% 40%,
           #d99c9c,
-          transparent
-        ),
-        radial-gradient(closest-corner at 70% 60%, #d38484, transparent);
+          transparent 80%
+        )
+        top left/200% 200%,
+      radial-gradient(closest-corner at 70% 60%, #d38484, transparent 80%)
+        bottom right/200% 200%;
+    animation: gradient 10s ease alternate infinite;
+    @keyframes gradient {
+      0% {
+        background-size: closest-corner;
+        background-position: 30% 40%;
+      }
+      50% {
+        background-size: closest-corner;
+        background-position: 70% 60%;
+      }
+      100% {
+        background-size: closest-corner;
+        background-position: 20% 80%;
+      }
     }
-    30% {
-      background: radial-gradient(
-          closest-corner at 50% 40%,
-          #d99c9c,
-          transparent
-        ),
-        radial-gradient(closest-corner at 60% 60%, #d38484, transparent);
-    }
-    60% {
-      background: radial-gradient(
-          closest-corner at 50% 60%,
-          #d38484,
-          transparent
-        ),
-        radial-gradient(closest-corner at 60% 40%, #d99c9c, transparent);
-    }
-    100% {
-      background: radial-gradient(
-          closest-corner at 30% 40%,
-          #d38484,
-          transparent
-        ),
-        radial-gradient(closest-corner at 40% 40%, #d99c9c, transparent);
-    }
-  } */
+  }
 `;
 
-const Wrapper = styled.div`
+const SecondSection = styled.div`
   border: solid 1px red;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
 `;
 
 const Main = styled.main`
