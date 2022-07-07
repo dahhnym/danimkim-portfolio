@@ -3,12 +3,15 @@ import './../App.css';
 import logo from './../assets/logo.png';
 import Hamburger from './../assets/Hamburger.svg';
 import Dark from './../assets/Dark.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <HeaderCont>
       <h1>
-        <img src={logo} alt='tinadev' width='130px' />
+        <Link to="/">
+          <img src={logo} alt="tinadev" width="130px" />
+        </Link>
       </h1>
       <Wrapper>
         <nav>
@@ -24,7 +27,7 @@ const Header = () => {
         <button>
           <DarkmodeIcon src={Dark} />
         </button>
-        <button className='NavBtn'>
+        <button className="navBtn">
           <NavbarIcon src={Hamburger} />
         </button>
       </Wrapper>
@@ -40,12 +43,12 @@ const HeaderCont = styled.header`
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  height: 120px;
+  height: 100px;
   padding: 0 2rem;
   nav {
     display: none;
   }
-  .NavBtn {
+  .navBtn {
     display: block;
   }
   @media screen and (min-width: 780px) {
@@ -53,7 +56,7 @@ const HeaderCont = styled.header`
     nav {
       display: block;
     }
-    .NavBtn {
+    .navBtn {
       display: none;
     }
   }
