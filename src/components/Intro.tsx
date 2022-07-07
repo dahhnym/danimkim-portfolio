@@ -8,7 +8,11 @@ const Intro = () => {
       <Heading>
         안녕하세요. 프론트엔드 개발자 <span>김다님</span>입니다.
       </Heading>
-      <Para>저의 포트폴리오 사이트에 오신 것을 환영합니다.</Para>
+      <Para>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore
+        sed illum quo. Voluptates, voluptate! Officia, error dolorem. Vero iure
+        ex perspiciatis ad eius recusandae alias voluptatem ab nesciunt autem.
+      </Para>
     </Section>
   );
 };
@@ -18,15 +22,16 @@ export default Intro;
 const Section = styled.section`
   height: calc(100vh - 140px);
   position: relative;
-  padding-left: 30px;
+  padding-right: 1.8rem;
 `;
 
 const Heading = styled.h2`
   font-size: 2rem;
-  position: absolute;
-  top: 25%;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
   font-family: 'Nanum Myeongjo', serif;
   font-weight: bold;
+  line-height: 1.5;
   cursor: default;
   word-break: keep-all;
   span {
@@ -43,19 +48,15 @@ const Heading = styled.h2`
     }
   }
   @media screen and (min-width: 640px) {
-    top: 180px;
     font-size: 2.5rem;
   }
   @media screen and (min-width: 1024px) {
-    top: 192px;
     font-size: 3rem;
   }
 `;
 
 const Para = styled.p`
-  font-size: 1.5rem;
-  position: absolute;
-  top: 384px;
-  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
   word-break: break-all;
 `;

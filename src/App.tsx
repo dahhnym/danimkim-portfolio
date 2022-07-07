@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* 추후에 path 이름 '/'로 변경 예정 */}
-          <Route path="/splash" element={<Splash />} />
+          <Route path='/splash' element={<Splash />} />
         </Routes>
       </BrowserRouter>
       <Header />
@@ -38,7 +38,9 @@ function App() {
           <section>
             <h2>Contact</h2>
           </section>
-          <Scroll>Scroll →</Scroll>
+          <Scroll>
+            <span>Scroll</span> →
+          </Scroll>
         </Main>
         <footer>
           <p>&copy; Copyright. All rights reserved. Danim Kim 2022 </p>
@@ -96,21 +98,24 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.main`
+  padding-left: 2rem;
   @media screen and (min-width: 640px) {
-    padding-left: 80px;
+    padding-left: 5rem;
   }
   @media screen and (min-width: 1024px) {
-    padding-left: 127px;
-    /* height: calc(100vh - 120px); */
+    padding-left: 8rem;
   }
 `;
 
 const Scroll = styled.p`
   font-size: 2rem;
   position: absolute;
-  right: 5rem;
-  bottom: 3rem;
+  right: 2rem;
+  bottom: 2rem;
   writing-mode: vertical-lr;
+  span {
+    display: none;
+  }
   &:hover {
     color: ${(props) => props.theme.babypink};
     transition: 0.2s;
@@ -123,6 +128,13 @@ const Scroll = styled.p`
       to {
         margin-bottom: 2rem;
       }
+    }
+  }
+  @media screen and (min-width: 640px) {
+    right: 5rem;
+    bottom: 3rem;
+    span {
+      display: inline-block;
     }
   }
 `;

@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import './../App.css';
 import logo from './../assets/logo.png';
+import Hamburger from './../assets/Hamburger.svg';
+import Dark from './../assets/Dark.svg';
 
 const Header = () => {
   return (
     <HeaderCont>
       <h1>
-        <img src={logo} alt="tinadev" width="100px" />
+        <img src={logo} alt='tinadev' width='130px' />
       </h1>
       <Wrapper>
         <nav>
@@ -19,8 +21,12 @@ const Header = () => {
             <Li>See Resume</Li>
           </Ul>
         </nav>
-        <button className="NavBtn">Hamburger btn</button>
-        <Button>Dark mode</Button>
+        <button>
+          <DarkmodeIcon src={Dark} />
+        </button>
+        <button className='NavBtn'>
+          <NavbarIcon src={Hamburger} />
+        </button>
       </Wrapper>
     </HeaderCont>
   );
@@ -42,7 +48,7 @@ const HeaderCont = styled.header`
   .NavBtn {
     display: block;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 780px) {
     height: 140px;
     nav {
       display: block;
@@ -62,12 +68,21 @@ const Li = styled.li`
   padding: 1rem;
 `;
 
-const Button = styled.button`
-  border: solid 1px pink;
-`;
-
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  border: solid 1px blue;
+`;
+
+const DarkmodeIcon = styled.img`
+  width: 1.8rem;
+  @media screen and (min-width: 640px) {
+    width: 2.2rem;
+  }
+`;
+const NavbarIcon = styled.img`
+  margin-left: 1.3rem;
+  width: 1.5rem;
+  @media screen and (min-width: 640px) {
+    width: 2rem;
+  }
 `;
