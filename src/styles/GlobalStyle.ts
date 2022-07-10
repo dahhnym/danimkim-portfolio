@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-
 export const GlobalStyle = createGlobalStyle`
     html {
         @media screen and (max-width: 640px) {
@@ -9,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 16px;
     }
 
-    a, button, li, h1, p {
+    a, button, p, li {
         font-family: 'Noto Sans KR', sans-serif;
     }
-`
+`;

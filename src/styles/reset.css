@@ -142,3 +142,12 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+main,
+div,
+article,
+section,
+ul,
+li {
+  box-sizing: border-box;
+}
