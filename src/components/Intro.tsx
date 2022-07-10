@@ -20,9 +20,10 @@ const Intro = () => {
 export default Intro;
 
 const Section = styled.section`
-  height: calc(100vh - 140px);
+  height: calc(100vh - 100px);
   position: relative;
   padding-right: 1.8rem;
+  /* border: solid 1px limegreen; */
 `;
 
 const Heading = styled.h2`
